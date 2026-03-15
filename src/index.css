@@ -2,8 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
-  body { @apply antialiased; }
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: #0A1020; }
-  ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 2px; }
+  body { @apply antialiased transition-colors duration-200; }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #F8FAFC; }
+  ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+  .dark ::-webkit-scrollbar-track { background: #0B1120; }
+  .dark ::-webkit-scrollbar-thumb { background: #1E293B; }
+  .dark ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+  /* Dark mode overrides for common patterns */
+  .dark .bg-white { background-color: #0B1120 !important; }
+  .dark .bg-gray-50 { background-color: #06090F !important; }
+  .dark .bg-gray-100 { background-color: #111C33 !important; }
+  .dark .border-gray-200 { border-color: #1E293B !important; }
+  .dark .border-gray-100 { border-color: #182444 !important; }
+  .dark .border-gray-50 { border-color: #111C33 !important; }
+  .dark .text-gray-900 { color: #E2E8F0 !important; }
+  .dark .text-gray-800 { color: #CBD5E1 !important; }
+  .dark .text-gray-700 { color: #94A3B8 !important; }
+  .dark .text-gray-600 { color: #94A3B8 !important; }
+  .dark .text-gray-500 { color: #64748B !important; }
+  .dark .text-gray-400 { color: #475569 !important; }
+  .dark .divide-gray-50 > * + * { border-color: #111C33 !important; }
+
+  /* Dark mode for platform UIs */
+  .dark .bg-\[\#F6F6F6\] { background-color: #161B22 !important; }
+  .dark .bg-\[\#16181C\] { background-color: #0D1117 !important; }
+  .dark .bg-\[\#1A1A1B\] { background-color: #0D1117 !important; }
+  .dark .bg-\[\#313338\] { background-color: #1a1d21 !important; }
+
+  /* Chart tooltip dark mode */
+  .dark .recharts-default-tooltip { background: #0B1120 !important; border-color: #1E293B !important; }
+
+  /* Dark mode for tinted backgrounds */
+  .dark .bg-cyan-50 { background-color: rgba(8, 145, 178, 0.1) !important; }
+  .dark .border-cyan-200 { border-color: rgba(8, 145, 178, 0.3) !important; }
+  .dark .bg-teal-50 { background-color: rgba(13, 148, 136, 0.1) !important; }
+  .dark .border-teal-200 { border-color: rgba(13, 148, 136, 0.3) !important; }
+  .dark .bg-slate-50 { background-color: rgba(100, 116, 139, 0.1) !important; }
+  .dark .border-slate-200 { border-color: rgba(100, 116, 139, 0.3) !important; }
+  .dark .bg-emerald-50 { background-color: rgba(5, 150, 105, 0.1) !important; }
+  .dark .border-emerald-200 { border-color: rgba(5, 150, 105, 0.3) !important; }
+  .dark .bg-orange-100 { background-color: rgba(234, 88, 12, 0.15) !important; }
+  .dark .bg-amber-50 { background-color: rgba(217, 119, 6, 0.1) !important; }
+  .dark .border-amber-200 { border-color: rgba(217, 119, 6, 0.3) !important; }
+  .dark .bg-purple-50 { background-color: rgba(124, 58, 237, 0.1) !important; }
+  .dark .border-purple-200 { border-color: rgba(124, 58, 237, 0.3) !important; }
+
+  /* Logo invert for dark mode */
+  .dark .logo-img { filter: invert(1) brightness(2) !important; }
 }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fadeIn { animation: fadeIn 0.6s ease-out forwards; }
+.animate-slideUp { animation: slideUp 0.5s ease-out forwards; }
